@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Prince O Prince">
+  <title>Modal Box</title>
+
+  <style>
+    body {
+      background: lightseagreen;
+    }
+
+    #modal, #modal22 {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgb(0, 0, 0);
+      background-color: rgb(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      cursor: pointer;
+    }
+
+    #modal_header {
+      padding: 2px 16px;
+      background-color: #5cb85c;
+      color: white;
+    }
+
+    #modal_body {
+      padding: 2px 16px;
+    }
+
+    #modal_footer {
+      padding: 2px 16px;
+      background-color: #5cb85c;
+      color: white;
+    }
+
+    #modal2 {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      border: 1px solid #888;
+      padding: 0;
+      width: 80%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                  0 6px 20px 0 rgba(0, 0 , 0, 0.19);
+      animation: animatetop 0.4s;
+    }
+
+    @keyframes animatetop {
+      from { top: -300px; opacity: 0; }
+      to { top: 0; opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btn">Open Modal</button>
+  <div id="modal">
+    <div class="modal-content">
+      <span class="close">&times</span>
+      <p>Some text in the modal...</p>
+    </div>
+  </div>
+
+  <button id="btn2">Open Modal2</button>
+  <div id="modal22">
+    <div id="modal2">
+      <div id="modal_header">
+        <span class="close">&times</span>
+        <h2>Modal Header</h2>
+      </div>
+      <div id="modal_body">
+        <p>Some text in the modal body</p>
+        <p>Some other text...</p>
+      </div>
+      <div id="modal_footer">
+        <h3>Modal Footer</h3>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    btn.onclick = function() {
+      modal.style.display = "block"
+    }
+
+    btn2.onclick = function() {
+      modal22.style.display = "block"
+    }
+
+    var close = document.querySelectorAll('.close')
+    close[0].onclick = function() {
+        modal.style.display = "none"
+    }
+
+    close[1].onclick = function() {
+        modal22.style.display = "none"
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = (event) => {
+      if (event.target == modal) {
+        modal.style.display = "none"
+      }
+      else if (event.target == modal22) {
+        modal22.style.display = "none"
+      }
+    }
+  </script>
+</body>
+</html>
